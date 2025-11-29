@@ -6,8 +6,10 @@ name: CI
 # This workflow is designed to be run on pushing to master branch.
 
 on:
+  pull_request: 
+    branches: ["master", "blessio*"]
   push:
-    branches: [master, Blessio*]
+    branches: ["master", "blessio*"]
     paths:
       - ".github/workflows/*.yml"
       - "src/**"
@@ -42,7 +44,9 @@ jobs:
 
       - name: "Install dependencies"
         run: |
+          echo "*************** run build-wasm *****************"
           npm run build-wasm
+          echo "*************** run CI *****************"
           npm ci
 
       # Our prepublish script runs in production mode by default.
