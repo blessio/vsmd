@@ -670,7 +670,7 @@
     "scripts": {
         "vscode:prepublish": "npm run build",
         "build": "npm run build-wasm && node ./build/build.js",
-        "build-wasm": "cd ./src/zola-slug && wasm-pack build --release",
+        "build-wasm": "cd ./src/zola-slug && wasm-pack build --release --enable-bulk-memory",
         "dev-build": "webpack --mode development",
         "dev-compile": "tsc --build --watch --verbose",
         "pretest": "tsc --build",
